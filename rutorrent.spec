@@ -191,7 +191,7 @@ client. \
 %prep
 %setup -q -n %name -a 1
 %apply_patches
-find -name '*.00??' -print -delete
+find -name '*.00??*' -print -delete
 
 # make sure a directory layout change is not missed
 [ $(ls | wc -l) -eq 10 ]

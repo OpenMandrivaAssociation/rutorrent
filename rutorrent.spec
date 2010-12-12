@@ -1,7 +1,7 @@
 
 %define name	rutorrent
 %define version	3.2
-%define rel	1
+%define rel	2
 
 %define _requires_exceptions ^pear(
 
@@ -31,7 +31,7 @@ Requires:	webserver
 # suggests to allow other webservers:
 Suggests:	apache-mod_php
 # for apache user:
-Requires(pre):	apache-base
+Requires(pre):	apache-conf
 
 %description
 rutorrent is a web frontend for the rTorrent bittorrent client.

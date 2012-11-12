@@ -1,0 +1,86 @@
+diff -Nurpa -x '*~' -x '*.orig' -x '*.rej' -x '*.swp' rutorrent//php/getplugins.php newdir/php/getplugins.php
+--- rutorrent//php/getplugins.php	2010-11-16 13:04:36.000000000 +0200
++++ rutorrent/php/getplugins.php	2010-11-19 01:11:33.838530351 +0200
+@@ -183,7 +183,7 @@ function testRemoteRequests($remoteReque
+ $jResult = "theWebUI.deltaTime = 0;\n";
+ $access = getConfFile('access.ini');
+ if(!$access)
+-	$access = "../conf/access.ini";
++	$access = "/etc/rutorrent/access.ini";
+ $permissions = parse_ini_file($access);
+ $settingsFlags = array(
+ 	"showDownloadsPage" 	=> 0x0001,
+@@ -269,7 +269,7 @@ if($handle = opendir('../plugins'))
+ 		}
+ 		$plg = getConfFile('plugins.ini');
+ 		if(!$plg)
+-			$plg = "../conf/plugins.ini";
++			$plg = "/etc/rutorrent/plugins.ini";
+ 		$permissions = parse_ini_file($plg,true);
+ 		$init = array();
+ 		$names = array();
+diff -Nurpa -x '*~' -x '*.orig' -x '*.rej' -x '*.swp' rutorrent//php/initplugins.php newdir/php/initplugins.php
+--- rutorrent//php/initplugins.php	2010-11-16 13:04:36.000000000 +0200
++++ rutorrent/php/initplugins.php	2010-11-19 01:11:33.838530351 +0200
+@@ -109,7 +109,7 @@ $theSettings = new rTorrentSettings();
+ $theSettings->obtain();
+ if( $theSettings->linkExist && ($handle = opendir('../plugins')))
+ {
+-	$permissions = parse_ini_file("../conf/plugins.ini",true);
++	$permissions = parse_ini_file("/etc/rutorrent/plugins.ini",true);
+ 	$init = array();
+ 	$names = array();
+ 	$phpVersion = phpversion();
+diff -Nurpa -x '*~' -x '*.orig' -x '*.rej' -x '*.swp' rutorrent//php/util.php newdir/php/util.php
+--- rutorrent//php/util.php	2010-11-16 13:04:36.000000000 +0200
++++ rutorrent/php/util.php	2010-11-19 01:13:56.540146092 +0200
+@@ -16,7 +16,7 @@ if(!isset($_SERVER['REMOTE_USER']))
+ }
+ 
+ $rootPath = realpath(dirname(__FILE__)."/..");
+-require_once( $rootPath.'/conf/config.php' );
++require_once( '/etc/rutorrent/config.php' );
+ $conf = getConfFile('config.php');
+ if($conf)
+ 	require_once($conf);
+@@ -251,7 +251,7 @@ function getConfFile($name)
+ 	if($user!='')
+ 	{
+ 	       	global $rootPath;
+-		$conf = $rootPath.'/conf/users/'.$user.'/'.$name;
++		$conf = '/etc/rutorrent/users/'.$user.'/'.$name;
+ 		if(is_file($conf) && is_readable($conf))
+ 			return($conf);
+ 	}
+@@ -262,13 +262,13 @@ function getPluginConf($plugin)
+ {
+         $ret = '';
+ 	global $rootPath;
+-	$conf = $rootPath.'/plugins/'.$plugin.'/conf.php';
++	$conf = '/etc/rutorrent/plugins/'.$plugin.'/conf.php';
+ 	if(is_file($conf) && is_readable($conf))
+ 		$ret.='require_once("'.$conf.'");';
+ 	$user = getUser();
+ 	if($user!='')
+ 	{
+-		$conf = $rootPath.'/conf/users/'.$user.'/plugins/'.$plugin.'/conf.php';
++		$conf = '/etc/rutorrent/users/'.$user.'/plugins/'.$plugin.'/conf.php';
+ 		if(is_file($conf) && is_readable($conf))
+ 			$ret.='require_once("'.$conf.'");';
+ 	}
+@@ -284,7 +284,7 @@ function getUser()
+ function getProfilePath()
+ {
+ 	global $rootPath;
+-        $ret = $rootPath.'/share';
++        $ret = '/var/lib/rutorrent/share';
+         $user = getUser();
+         if($user!='')
+         {
+@@ -405,4 +405,4 @@ function cachedEcho( $content, $type = n
+ 		echo($content);
+ }
+ 
+-?>
+\ Ei rivinvaihtoa tiedoston lopussa
++?>

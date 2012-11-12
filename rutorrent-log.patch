@@ -1,0 +1,12 @@
+diff -Nurpw rutorrent/conf/config.php rutorrent-log/conf/config.php
+--- rutorrent/conf/config.php	2010-05-25 11:26:53.000000000 +0300
++++ rutorrent-log/conf/config.php	2010-09-11 20:01:16.100777659 +0300
+@@ -16,7 +16,7 @@
+ 	@define('PHP_GZIP_LEVEL', 2, true);
+ 
+ 	$do_diagnostic = true;
+-	$log_file = '/tmp/errors.log';		// path to log file (comment or make empty to disable logging)
++	$log_file = '/var/log/rutorrent/errors.log'; // path to log file (make empty to disable logging)
+ 	$saveUploadedTorrents = true;
+ 
+ 	$topDirectory = '/';			// Upper available directory. Absolute path with trail slash.

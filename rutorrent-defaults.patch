@@ -1,0 +1,21 @@
+diff -p -up rutorrent/php/util.php.orig rutorrent/php/util.php
+--- rutorrent/php/util.php.orig	2010-11-19 01:13:59.984209205 +0200
++++ rutorrent/php/util.php	2010-11-19 01:14:00.052210447 +0200
+@@ -16,6 +16,7 @@ if(!isset($_SERVER['REMOTE_USER']))
+ }
+ 
+ $rootPath = realpath(dirname(__FILE__)."/..");
++require_once( '/usr/share/rutorrent/php/defaults-mdv.php' );
+ require_once( '/etc/rutorrent/config.php' );
+ $conf = getConfFile('config.php');
+ if($conf)
+@@ -262,6 +263,9 @@ function getPluginConf($plugin)
+ {
+         $ret = '';
+ 	global $rootPath;
++	$conf = '/usr/share/rutorrent/plugins/'.$plugin.'/defaults-mdv.php';
++	if(is_file($conf) && is_readable($conf))
++		$ret.='require_once("'.$conf.'");';
+ 	$conf = '/etc/rutorrent/plugins/'.$plugin.'/conf.php';
+ 	if(is_file($conf) && is_readable($conf))
+ 		$ret.='require_once("'.$conf.'");';

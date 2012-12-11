@@ -301,3 +301,14 @@ rm -rf %{buildroot}
 %dir %{_localstatedir}/lib/%{name}
 %attr(0755,apache,apache) %{_localstatedir}/lib/%{name}/share
 %attr(0755,apache,apache) %dir %{_logdir}/%{name}
+
+
+%changelog
+* Sun Dec 12 2010 Anssi Hannula <anssi@mandriva.org> 3.2-2mdv2011.0
++ Revision: 620617
+- require apache-conf instead of apache-base for apache user
+
+* Wed Dec 01 2010 Anssi Hannula <anssi@mandriva.org> 3.2-1mdv2011.0
++ Revision: 604521
+- initial Mandriva release
+

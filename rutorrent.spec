@@ -1,14 +1,7 @@
-
-%define name	rutorrent
-%define version	3.2
-%define rel	2
-
-%define _requires_exceptions ^pear(
-
 Summary:	Web frontend for the rTorrent bittorrent client
-Name:		%{name}
-Version:	%{version}
-Release:	%mkrel %rel
+Name:		rutorrent
+Version:	3.2
+Release:	3
 License:	GPLv3
 Group:		Networking/File transfer
 URL:		http://code.google.com/p/rutorrent/

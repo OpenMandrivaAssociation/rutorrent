@@ -1,7 +1,7 @@
 Summary:	Web frontend for the rTorrent bittorrent client
 Name:		rutorrent
 Version:	3.2
-Release:	4
+Release:	5
 License:	GPLv3
 Group:		Networking/File transfer
 URL:		http://code.google.com/p/rutorrent/
@@ -214,7 +214,7 @@ cat > %{buildroot}%{_webappconfdir}/%{name}.conf <<EOF
 Alias /%{name} %{_datadir}/%{name}
 
 <Directory %{_datadir}/%{name}>
-    Require host localhost.localdomain
+    Require local granted
 </Directory>
 EOF
 

@@ -1,7 +1,7 @@
 Summary:	Web frontend for the rTorrent bittorrent client
 Name:		rutorrent
 Version:	3.2
-Release:	5
+Release:	6
 License:	GPLv3
 Group:		Networking/File transfer
 URL:		http://code.google.com/p/rutorrent/

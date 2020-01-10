@@ -183,7 +183,7 @@ client. \
 
 %prep
 %setup -q -n %name -a 1
-%apply_patches
+%autopatch -p1
 find -name '*.00??*' -print -delete
 
 # make sure a directory layout change is not missed

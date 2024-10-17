@@ -4,7 +4,7 @@ Version:	3.2
 Release:	6
 License:	GPLv3
 Group:		Networking/File transfer
-URL:		http://code.google.com/p/rutorrent/
+URL:		https://code.google.com/p/rutorrent/
 Source:		http://rutorrent.googlecode.com/files/%{name}-%{version}.tar.gz
 # Plugins are here in the same .spec for simplicity as they mostly share
 # rutorrent's version number. If this changes in the future or it is otherwise
